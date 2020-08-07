@@ -1,0 +1,72 @@
+<div class="container">
+
+    <div class="row">
+        <div class="card col-md-4 col-sm-12" style="width: 18rem;" *ngFor="let list of items">
+            <img [src]=list.photopath class="card-img-top" alt="..." height="260px">
+            <div class="card-body">
+                <h5 class="card-title">{{list.name}}</h5>
+                <p class="card-text">{{list.displayprice}}</p>
+                <app-addcart [importid]=list [username]=useremail></app-addcart>
+            </div>
+        </div>
+        <div class="col-md-4 text-center col-sm-12">
+                
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal3" *ngIf="checkAdmin" >
+                    Add More To list
+                </button>
+
+                
+                <div class="modal fade" id="exampleModal3" tabindex="-1" role="dialog"
+                    aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel3">Modal title</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <form>
+                                    <div class="form-group">
+                                        <label for="itemid">Itemid</label>
+                                        <input type="text" class="form-control" [(ngModel)]="itemid" name="itemid"
+                                            aria-describedby="emailHelp">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="displayprice">Displayprice</label>
+                                        <input type="text" class="form-control" [(ngModel)]="displayprice" name="displayprice"
+                                            aria-describedby="emailHelp">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="category">Category</label>
+                                        <input type="text" class="form-control" [(ngModel)]="Category" name="category"
+                                            aria-describedby="emailHelp">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="name">Name</label>
+                                        <input type="text" class="form-control" [(ngModel)]="name" name="name"
+                                            aria-describedby="emailHelp">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="price">Price</label>
+                                        <input type="text" class="form-control" [(ngModel)]="price" name="price"
+                                            aria-describedby="emailHelp">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="photopath">Photopath</label>
+                                        <input type="text" class="form-control" [(ngModel)]="photopath" name="photopath"
+                                            aria-describedby="emailHelp">
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="modal-footer">
+                                <!-- <button type="button" class="btn btn-secondary" >Close</button> -->
+                                <button type="button" class="btn btn-primary" (click)="save()" data-dismiss="modal">Save changes</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </div>
+</div>

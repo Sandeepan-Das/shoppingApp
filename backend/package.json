@@ -1,0 +1,25 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "Shoppin App",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "test": "mocha app/test.js"
+  },
+  "author": "Sandeepan Das",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "chai": "^4.2.0",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "lodash": "^4.17.19",
+    "mocha": "^8.0.1",
+    "mongoose": "^5.9.19",
+    "path": "^0.12.7"
+  },
+  "devDependencies": {
+    "jest": "^26.1.0"
+  }
+}

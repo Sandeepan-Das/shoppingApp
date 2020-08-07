@@ -1,0 +1,21 @@
+<a  class="btn btn-primary" (click)="checklogin()" *ngIf="expression;else templateName">ADD TO CART</a>
+<ng-template #templateName>
+
+
+    <div class="input-group">
+        <div class="input-group-append">
+            <button class="btn btn-outline-secondary" type="button" (click)="sub()">-</button>
+        </div>
+
+        <input type="text" class="form-control" aria-label="Recipient's username" aria-describedby="basic-addon2" [(ngModel)]="quantity">
+        <div class="input-group-append">
+            <button class="btn btn-outline-secondary" type="button" (click)="add()">+</button>
+        </div>
+    </div>
+</ng-template>
+<div class="alert alert-danger alert-dismissible fade show" role="alert" *ngIf="alerts">
+    <strong>You need to Login!</strong> Click on Sign-in above.
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close" (click)="restore()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+</div>

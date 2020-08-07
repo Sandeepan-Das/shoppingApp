@@ -1,0 +1,166 @@
+<ng-template #templateName3>
+  <form class="needs-validation" novalidate>
+    <div class="form-group">
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" value="" id="invalidCheck" (change)="autofill()">
+        <label class="form-check-label" for="invalidCheck">
+          AutoFill
+        </label>
+        <div class="invalid-feedback">
+          You must agree before submitting.
+        </div>
+      </div>
+    </div>
+    <ul class="list-group" *ngFor="let item of cartItem">
+      <li class="list-group-item d-flex justify-content-between align-items-center">
+        {{item.refid.name}}
+        <span class="badge badge-primary badge-pill">{{item.quantity}}</span>
+      </li>
+
+    </ul>
+    <ul>
+      <li class="list-group-item d-flex justify-content-between align-items-center">
+        <h4>Total payable amount is:</h4>
+        <h3>{{total |currency:'INR':true}}</h3>
+
+      </li>
+    </ul>
+    <div *ngIf="expression;else templateName">
+      <div class="form-row">
+        <div class="col-md-6 mb-3">
+          <label for="validationCustom01">First name</label>
+          <input type="text" class="form-control" id="validationCustom01" [value]="FirstName" required>
+          <div class="valid-feedback">
+            Looks good!
+          </div>
+        </div>
+        <div class="col-md-6 mb-3">
+          <label for="validationCustom02">Last name</label>
+          <input type="text" class="form-control" id="validationCustom02" [value]="LastName" required>
+          <div class="valid-feedback">
+            Looks good!
+          </div>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="col-md-6 mb-3">
+          <label for="exampleInputAddress1">Address </label>
+          <input type="text" class="form-control" name="exampleInputAddress1" required [value]="Address">
+          <div class="valid-feedback">
+            Looks good!
+          </div>
+        </div>
+        <div class="col-md-6 mb-3">
+          <label for="exampleInputLane1">Lane</label>
+          <input type="text" class="form-control" name="exampleInputLane1" required [value]="Lane">
+          <div class="valid-feedback">
+            Looks good!
+          </div>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="col-md-6 mb-3">
+          <label for="validationCustom03">City</label>
+          <input type="text" class="form-control" id="validationCustom03" [value]="city" required>
+          <div class="invalid-feedback">
+            Please provide a valid city.
+          </div>
+        </div>
+        <div class="col-md-3 mb-3">
+          <label for="validationCustom04">State</label>
+          <input type="text" class="form-control" id="validationCustom04" [value]="state" required>
+          <div class="invalid-feedback">
+            Please select a valid state.
+          </div>
+        </div>
+        <div class="col-md-3 mb-3">
+          <label for="validationCustom05">Zip</label>
+          <input type="text" class="form-control" id="validationCustom05" [value]="zip" required>
+          <div class="invalid-feedback">
+            Please provide a valid zip.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <ng-template #templateName>
+      <div class="form-row">
+        <div class="col-md-6 mb-3">
+          <label for="validationCustom01">First name</label>
+          <input type="text" class="form-control" name="validationCustom01" required [(ngModel)]="newFirstName">
+          <div class="valid-feedback">
+            Looks good!
+          </div>
+        </div>
+        <div class="col-md-6 mb-3">
+          <label for="validationCustom02">Last name</label>
+          <input type="text" class="form-control" name="validationCustom02" required [(ngModel)]="newLastName" >
+          <div class="valid-feedback">
+            Looks good!
+          </div>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="col-md-6 mb-3">
+          <label for="exampleInputAddress1">Address </label>
+          <input type="text" class="form-control" name="exampleInputAddress1" required [(ngModel)]="newAddress">
+          <div class="valid-feedback">
+            Looks good!
+          </div>
+        </div>
+        <div class="col-md-6 mb-3">
+          <label for="exampleInputLane1">Lane</label>
+          <input type="password" class="form-control" name="exampleInputLane1" required [(ngModel)]="newLane">
+          <div class="valid-feedback">
+            Looks good!
+          </div>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="col-md-6 mb-3">
+          <label for="validationCustom03">City</label>
+          <input type="text" class="form-control" name="validationCustom03" required [(ngModel)]="newCity ">
+          <div class="invalid-feedback">
+            Please provide a valid city.
+          </div>
+        </div>
+        <div class="col-md-3 mb-3">
+          <label for="validationCustom04">State</label>
+          <input type="text" class="form-control" name="validationCustom04" required [(ngModel)]="newState">
+          <div class="invalid-feedback">
+            Please select a valid state.
+          </div>
+        </div>
+        <div class="col-md-3 mb-3">
+          <label for="validationCustom05">Zip</label>
+          <input type="text" class="form-control" name="validationCustom05" required [(ngModel)]="newZip">
+          <div class="invalid-feedback">
+            Please provide a valid zip.
+          </div>
+        </div>
+      </div>
+    </ng-template>
+    <button class="btn btn-primary" type="submit" (click)="buy()">BUY!!!</button>
+  </form>
+</ng-template>
+
+<div class="jumbotron jumbotron-fluid" *ngIf="expression3;else templateName3">
+  <h1 class="display-4">Thanks For shopping with San-kart</h1>
+  <p class="lead">Your product will reach within 3-4 working days</p>
+  <hr class="my-4">
+  <p>click on Home to continue Shopping</p>
+  <a class="btn btn-primary btn-lg" [routerLink]="['/']" routerLinkActive="router-link-active" role="button"
+    (click)="home()">Home</a>
+</div>
+<div class="alert alert-danger alert-dismissible fade show" role="alert" *ngIf="alerts2">
+  <strong>Please Fill up All the fields!</strong>
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close" (click)="restore()">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="alert alert-danger alert-dismissible fade show" role="alert" *ngIf="alerts3">
+  <strong>Cart is nill !!!! Buy something</strong>
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close" (click)="restore()">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>

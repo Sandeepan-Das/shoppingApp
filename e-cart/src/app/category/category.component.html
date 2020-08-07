@@ -1,0 +1,19 @@
+<div class="container bg-light">
+  <div class="row">
+    <div class="col-md-3 col-sm-12">
+      <div class="list-group" *ngFor="let item of category;let i=index">
+        <a [routerLink]="['/items']" routerLinkActive="router-link-active"
+          class="list-group-item list-group-item-action active" (click)="reciveuid(item.name)" *ngIf="index==1;else templateName">{{item.name}}</a>
+          <ng-template #templateName>
+              <a [routerLink]="['/items']" routerLinkActive="router-link-active"
+              class="list-group-item list-group-item-action" (click)="reciveuid(item.name)" >{{item.name}}</a>
+          </ng-template>
+      </div>
+    </div>
+    <div class="col-md-9">
+      <!-- <app-items [items]="items" [event]="clickedEvent" [check]="checkAdmin"></app-items> -->
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+
+</div>
